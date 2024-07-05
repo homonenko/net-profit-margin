@@ -27,3 +27,19 @@ def read_csv(path):
             csv_reader = csv.reader(file)
             data = [row for row in csv_reader]
         return data
+
+#Artem
+except PermissionError:
+        print(f"Permission denied: '{path}'. Please check the file permissions.")
+        return None
+    except FileNotFoundError:
+        print(f"File not found: '{path}'. Please check the file path.")
+        return None
+
+def process_data(data):
+        if data:
+            header_info = ' | '.join(data[0])
+            total_records = len(data) - 1
+            return header_info, total_records
+    else:
+        return "", 0
