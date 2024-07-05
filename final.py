@@ -1,3 +1,6 @@
+import csv
+import os
+
 
 while True:
     print("1. Check existing information")
@@ -17,3 +20,10 @@ while True:
         break
     else:
         print("Invalid choice. Try again")
+
+
+def read_csv(path):
+        with open(path.strip(),'r') as file:
+            csv_reader = csv.reader(file)
+            data = [row for row in csv_reader]
+        return data
