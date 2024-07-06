@@ -19,5 +19,10 @@ def compute_metric():
     print("Select a data source:")
     for index, (path, _) in enumerate(data_sources, start=1):
         print(f"{index}. {os.path.basename(path)}")
+    try:
+        selection = int(input("Enter the number of the data source: ").strip())
+        if 1 <= selection <= len(data_sources):
+            path = data_sources[selection - 1][0]
+            data = read_csv(path)
 
 
