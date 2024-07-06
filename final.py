@@ -43,3 +43,9 @@ def process_data(data):
             return header_info, total_records
     else:
         return "", 0
+
+while True:
+    print("1. Display existing information")
+    print("2. Add a new data source (file)")
+    print("3. Compute metric")
+
