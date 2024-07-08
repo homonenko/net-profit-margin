@@ -25,6 +25,8 @@ Reads the CSV file from the given path and returns the data as a list of rows. H
 'process_data(data)
 
 Processes the CSV data to extract header information and the total number of records.
+# 1. Display existing information
+
 ```
 1. Display existing information
 2. Add a new data source (file)
@@ -42,4 +44,72 @@ Enter your choice: 1
 
 ```
 
+# 2. Add a new data source (file)
+```
+1. Display existing information
+2. Add a new data source (file)
+3. Compute metric
+4. Exit
+Enter your choice: 2
+```
+# Output
+```
+Enter file path: RDDT.csv
+Headers: ﻿date |  symbol |  reportedCurrency |  cik |  fillingDate |  acceptedDate |  calendarYear |  period |  revenue |  costOfRevenue |  grossProfit |  grossProfitRatio |  researchAndDevelopmentExpenses |  generalAndAdministrativeExpenses |  sellingAndMarketingExpenses |  sellingGeneralAndAdministrativeExpenses |  otherExpenses |  operatingExpenses |  costAndExpenses |  interestIncome |  interestExpense |  depreciationAndAmortization |  ebitda |  ebitdaratio |  operatingIncome |  operatingIncomeRatio |  totalOtherIncomeExpensesNet |  incomeBeforeTax |  incomeBeforeTaxRatio |  incomeTaxExpense |  netIncome |  netIncomeRatio |  eps |  epsdiluted |  weightedAverageShsOut |  weightedAverageShsOutDil |  link |  finalLink |  lastRetainedEarnings |  stockRepurchases |  dividendsPaid |  otherDistributions |  retainedEarnings |  grossPPE |  annualDepreciation |  capitalExpenditure |  netPPE |  lastGoodwill |  acquisitionsAndAdjustments |  goodwill
+Total records: 4
+```
+# 3. Compute metric
+```
+1. Display existing information
+2. Add a new data source (file)
+3. Compute metric
+4. Exit
+Enter your choice: 3
+```
+# Output
+```
+Select a data source:
+1. AAPL.csv
+2. GOOG.csv
+3. NFLX.csv
+4. RDDT.csv
+Enter the number of the data source: 3
+Selected data source: NFLX.csv | Total records: 4
+Net Profit Margin: 11.09%
+```
+# Menu Choice Validation
 
+Ensures that the user inputs a valid menu choice (1-4).
+```
+Enter your choice: 5
+Invalid choice. Try again.
+```
+# File Path Validation
+
+Checks if the file exists and has the correct permissions.
+```
+Enter file path: invalid/path.csv
+File not found: 'invalid/path.csv'. Please check the file path.
+```
+# CSV Data Validation
+
+Ensures that the CSV data contains valid numeric values for revenue and net income.
+
+```
+Error in data format. Please ensure the CSV contains valid numeric values for revenue and net income.
+```
+# Empty Input File
+
+Handles cases where the input file is empty gracefully.
+
+```
+Enter file path: empty.csv
+Headers: 
+Total records: 0
+```
+# Large Input File
+
+Performance tested with a large input file (e.g., 5 MB).
+```
+25 seconds to process a large file.
+```
