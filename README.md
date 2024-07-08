@@ -5,3 +5,11 @@
  2. Add a New Data Source
  3. Compute Metric
  4. Exit
+# Functions and descrtiption 
+display_existing_info()
+
+Displays the last three data sources and their metrics if available, otherwise informs the user that no data sources are available.
+compute_metric()
+
+Allows the user to select a data source and computes the Net Profit Margin based on the CSV data. Updates the data source list with the computed metric.
+
