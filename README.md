@@ -113,3 +113,12 @@ Performance tested with a large input file (e.g., 5 MB).
 ```
 25 seconds to process a large file.
 ```
+# Maks
+Functional Menu: Maks developed the main interactive menu that allows users to navigate through the program's functionalities. This menu provides options to display existing information, add new data sources, compute metrics, and exit the program.
+Function display_existing_info(): Maks implemented this function to display the last three data sources and their calculated metrics, if available. This function ensures that users can quickly view recent data sources and their associated metrics.
+Function read_csv(): Maks also wrote the function responsible for reading CSV files. This function handles file reading, ensuring that data is correctly loaded into the program, and manages potential errors such as file not found or permission issues.
+# Vlada
+Function compute_metric(): Vlada developed this function to calculate the metrics for the selected data source. This involves prompting the user to select a data source and then computing the Net Profit Margin based on the data within the CSV file.
+Function compute_net_profit_margin(): Vlada also wrote this function, which calculates the Net Profit Margin using the total revenue and net income columns from the CSV data. This function ensures accurate financial calculations and handles potential data format errors.
+# Artem
+Function process_data(): Artem was responsible for creating this function, which processes the CSV data to extract header information and calculate the total number of records. This function is crucial for providing users with an overview of the data contained within the CSV file.
