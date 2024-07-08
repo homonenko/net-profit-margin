@@ -6,23 +6,28 @@
  3. Compute Metric
  4. Exit
 # Functions and descrtiption 
-'display_existing_info()'
+```
+display_existing_info()
+```
 
 Displays the last three data sources and their metrics if available, otherwise informs the user that no data sources are available.
-
-'compute_metric()'
-
+```
+compute_metric()
+```
 Allows the user to select a data source and computes the Net Profit Margin based on the CSV data. Updates the data source list with the computed metric.
-
-'compute_net_profit_margin(data)'
+```
+compute_net_profit_margin(data)
+```
 
 Calculates the Net Profit Margin using the total revenue and net income columns from the CSV data.
-
-'read_csv(path)'
+```
+read_csv(path)
+```
 
 Reads the CSV file from the given path and returns the data as a list of rows. Handles errors such as file not found and permission issues.
-
-'process_data(data)
+```
+process_data(data)
+```
 
 Processes the CSV data to extract header information and the total number of records.
 # 1. Display existing information
@@ -114,11 +119,30 @@ Performance tested with a large input file (e.g., 5 MB).
 25 seconds to process a large file.
 ```
 # Maks
-Functional Menu: Maks developed the main interactive menu that allows users to navigate through the program's functionalities. This menu provides options to display existing information, add new data sources, compute metrics, and exit the program.
-Function display_existing_info(): Maks implemented this function to display the last three data sources and their calculated metrics, if available. This function ensures that users can quickly view recent data sources and their associated metrics.
-Function read_csv(): Maks also wrote the function responsible for reading CSV files. This function handles file reading, ensuring that data is correctly loaded into the program, and manages potential errors such as file not found or permission issues.
+Functional Menu: 
+
+Maks developed the main interactive menu that allows users to navigate through the program's functionalities. This menu provides options to display existing information, add new data sources, compute metrics, and exit the program.
+
+Function display_existing_info(): 
+
+Maks implemented this function to display the last three data sources and their calculated metrics, if available. This function ensures that users can quickly view recent data sources and their associated metrics.
+
+Function read_csv(): 
+
+Maks also wrote the function responsible for reading CSV files. This function handles file reading, ensuring that data is correctly loaded into the program, and manages potential errors such as file not found or permission issues.
 # Vlada
-Function compute_metric(): Vlada developed this function to calculate the metrics for the selected data source. This involves prompting the user to select a data source and then computing the Net Profit Margin based on the data within the CSV file.
-Function compute_net_profit_margin(): Vlada also wrote this function, which calculates the Net Profit Margin using the total revenue and net income columns from the CSV data. This function ensures accurate financial calculations and handles potential data format errors.
+Function compute_metric(): 
+
+Vlada developed this function to calculate the metrics for the selected data source. This involves prompting the user to select a data source and then computing the Net Profit Margin based on the data within the CSV file.
+
+Function compute_net_profit_margin(): 
+
+Vlada also wrote this function, which calculates the Net Profit Margin using the total revenue and net income columns from the CSV data. This function ensures accurate financial calculations and handles potential data format errors.
 # Artem
-Function process_data(): Artem was responsible for creating this function, which processes the CSV data to extract header information and calculate the total number of records. This function is crucial for providing users with an overview of the data contained within the CSV file.
+Function process_data(): 
+
+Artem was responsible for creating this function, which processes the CSV data to extract header information and calculate the total number of records. This function is crucial for providing users with an overview of the data contained within the CSV file.
+
+Creating of README: 
+
+Artem was also resposible for writing README and presenting it
