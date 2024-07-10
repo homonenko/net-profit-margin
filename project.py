@@ -1,16 +1,7 @@
 import csv
 import os
 
-
 data_sources = []
-
-# def display_existing_info():
-#     if not data_sources:
-#         print("No data sources available.")
-#     else:
-#         for index, (path, metric) in enumerate(data_sources[-3:], start=1):
-#             print(f"{index}) Data source: {os.path.basename(path)} | Metric: {metric}")
-# Це вже є
 
 def compute_metric():
     if not data_sources:
@@ -21,45 +12,45 @@ def compute_metric():
     for index, (path, _) in enumerate(data_sources, start=1):
         print(f"{index}. {os.path.basename(path)}")
     try:
-        selection = int(input("Enter the number of the data source: ").strip())
-        if 1 <= selection <= len(data_sources):
-            path = data_sources[selection - 1][0]
+        choice = int(input("Enter the number of the data source: ").strip())
+        if 1 <= choice <= len(data_sources):
+            path = data_sources[choice - 1][0]
             data = read_csv(path)
             if data:
                 header_info, total_records = process_data(data)
                 print(f"Selected data source: {os.path.basename(path)} | Total records: {total_records}")
                 net_profit_margin = compute_net_profit_margin(data)
                 print(f"Net Profit Margin: {net_profit_margin:.2f}%")
-                data_sources[selection - 1] = (path, f"Net Profit Margin = {net_profit_margin:.2f}%")
+                data_sources[choice - 1] = (path, f"Net Profit Margin = {net_profit_margin:.2f}%")
             else:
-                print("Failed to read the data source. Please check the file and try again.")
+                print("Failed to read the data source.")
         else:
-            print("Invalid selection. Try again.")
+            print("Invalid choice. Try again.")
     except ValueError:
         print("Invalid input. Please enter a number.")
     except FileNotFoundError:
-        print("File not found. Please check the file path and try again.")
+        print("File not found.")
 
 def compute_net_profit_margin(data):
     try:
-        total_revenue = sum(float(row[8]) for row in data[1:])  # assuming revenue is in the 9th column
-        net_income = sum(float(row[30]) for row in data[1:])  # assuming net income is in the 31st column
+        total_revenue = sum(float(row[8]) for row in data[1:])
+        net_income = sum(float(row[30]) for row in data[1:])
         return (net_income / total_revenue) * 100 if total_revenue else 0
     except ValueError:
-        print("Error in data format. Please ensure the CSV contains valid numeric values for revenue and net income.")
+        print("Error in data format.")
         return 0
 
 def read_csv(path):
     try:
-        with open(path.strip(), mode='r', encoding='utf-8') as file:
+        with open(path.strip(), 'r') as file:
             csv_reader = csv.reader(file)
             data = [row for row in csv_reader]
         return data
     except PermissionError:
-        print(f"Permission denied: '{path}'. Please check the file permissions.")
+        print(f"Error for '{path}'.")
         return None
     except FileNotFoundError:
-        print(f"File not found: '{path}'. Please check the file path.")
+        print(f"Error for '{path}'.")
         return None
 
 def process_data(data):
@@ -69,6 +60,13 @@ def process_data(data):
         return header_info, total_records
     else:
         return "", 0
+
+def display_existing_info():
+    if not data_sources:
+        print("No data sources available.")
+    else:
+        for index, (path, metric) in enumerate(data_sources[-3:], start=1):
+            print(f"{index}) Data source: {os.path.basename(path)} | Metric: {metric}")
 
 while True:
     print("1. Display existing information")
@@ -92,18 +90,5 @@ while True:
     else:
         print("Invalid choice. Try again")
 
-
- try:
-        selection = int(input("Enter the number of the data source: ").strip())
-        if 1 <= selection <= len(data_sources):
-            path = data_sources[selection - 1][0]
-            data = read_csv(path)
-            if data:
-                header_info, total_records = process_data(data)
-                print(f"Selected data source: {os.path.basename(path)} | Total records: {total_records}")
-                net_profit_margin = compute_net_profit_margin(data)
-                print(f"Net Profit Margin: {net_profit_margin:.2f}%")
-                data_sources[selection - 1] = (path, f"Net Profit Margin = {net_profit_margin:.2f}%")
-            else:
-                print("Failed to read the data source. Please check the file and try again.")
+#моментами помагав гпт
 
